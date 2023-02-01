@@ -2,26 +2,20 @@ import React, {useState, useEffect, useContext} from "react";
 import { Link } from "react-router-dom";
 //Queremos utilizar auth para el logout, entonces importamos Context
 import { Context } from "../store/appContext.js";
-
+import { useNavigate } from "react-router-dom"; //Importamos el hook useNavigate para redireccionar desde una funcion
 
 export const Navbar = () => {
 	// console.log(store.favorite);
 	const {store, actions}=useContext(Context);
+	const navigate = useNavigate() //Activamos useNavigate
 
-	// const [contadorLikes, setContadorLikes] = useState("")
-	
-	// console.log(store.favorites);
-
-	// function contarLikes() {
-    //     setContadorLikes(store.likesGuardados?.length)
-    // }
-
-
-	// useEffect(() => {
-    //     contarLikes()
-    // }, [store.likesGuardados])
-
-
+	//1ra de las cosas por hacer es desloguearse
+	//2da cosa es redirigir la vista, no podemos hacerlo con Navigate entonces usaremos useNavigate. Porque si tenemos que hacer varias acciones y no podemos colocar esa condición en el ternario, tendremos que complejizar la lógica. Y si debemos complejizar o escribir más lineas de codigo no podemos llevar a cabo la funcion actions.logout(), eso no existira y lo ataremos a handleLogout().
+function handleLogout(){
+	actions.logout() //Le diremos a la función que cierre sesión
+	//Lo redirigiremos no del código HTML sino del código JS, para llevar a cabo eso usaremos un hook de React-Router que se llama useNavigate
+	navigate("/") //Usamos Navigate para redireccionar
+}
 
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
@@ -37,7 +31,7 @@ export const Navbar = () => {
 						</Link>
 
 						{/* Usamos el operador ternario para crear la condición para que aparezca el logout si estamos log, sino no */}
-						{store.auth === true? <button className="btn btn-primary rounded mx-1">Logout</button> : null}
+						{store.auth === true? <button className="btn btn-primary rounded mx-1" onClick={()=>actions.logout()}>Logout</button> : null}
 
 						<button type="button" className="btn btn-danger dropdown-toggle rounded me-2" data-bs-toggle="dropdown" aria-expanded="false">
 							Favorites

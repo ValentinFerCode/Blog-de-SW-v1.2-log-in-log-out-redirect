@@ -111,6 +111,13 @@ const getState = ({
             },
             //Termina el fetch que nos permite conectar con el BackEnd
 
+            logout: () => {
+                // console.log("Funciona");
+                localStorage.removeItem('token');
+                setStore({
+                    auth: false
+                })
+            },
 
 
             // changeColor: (index, color) => {
