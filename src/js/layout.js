@@ -4,6 +4,8 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
+// importo login
+import { Login } from "./views/login.jsx";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
@@ -23,6 +25,8 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
+						{/* Ruta para el login */}
+						<Route path="/login" element={<Login />} />
 						{/* <Route path="/detalles" element={<Detalles />} /> */}
 						{/* : -> refiere a rutas dinamicas // single es el espacio de memoria donde se guarda theid en la url // la vista que se ve es la del componente Single*/}
 						<Route path="/single/:theid" element={<Single />} />

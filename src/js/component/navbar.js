@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useContext} from "react";
 import { Link } from "react-router-dom";
+//Queremos utilizar auth para el logout, entonces importamos Context
 import { Context } from "../store/appContext.js";
 
 
@@ -29,7 +30,16 @@ export const Navbar = () => {
 			</Link>
 				<div className="ml-auto">	
 					<div className="btn-group">
-						<button type="button" className="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+						{/* Uso la etiqueta link para enviarlo a la vista login */}
+						<Link to="/login">
+						{/* Usamos el operador ternario para crear la condición para que desaparezca el boton si estamos log, sino no*/}
+						{store.auth === false? <button className="btn btn-primary rounded mx-1">Login</button> : null}
+						</Link>
+
+						{/* Usamos el operador ternario para crear la condición para que aparezca el logout si estamos log, sino no */}
+						{store.auth === true? <button className="btn btn-primary rounded mx-1">Logout</button> : null}
+
+						<button type="button" className="btn btn-danger dropdown-toggle rounded me-2" data-bs-toggle="dropdown" aria-expanded="false">
 							Favorites
 							
 							{/* <span className="text-danger">
