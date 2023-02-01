@@ -63,9 +63,9 @@ const getState = ({
             login: (userEmail, userPassword) => {
                 // //Realizamos fetch para solicitar la info. Luego necesitamos llevar al flux la respuesta que nos está dando para que se lea en toda la app y no solo en esta vista. Debido a que con el token podremos saber en cualquier vista si mi usuario esta logueado, si esta logueado lo dejo mantenerse en una vista protegida y sino, lo redirecciono. Si expira o se cierra la sesion en alguna vista lo que sucede es que nos redirije al login
 
+
                 //Empieza el fetch que nos permite conectar con el BackEnd
                 //Lo siguiente es llamar a la funcion a la vista del formulario, necesitamos consumirlo en la view
-
                 // //La URL es la testeada en el Postman
                 fetch('https://3000-valentinfer-flaskstarwa-8rxr6xqa8nz.ws-us85.gitpod.io/login', {
                         //Para el method necesitamos header y body    
@@ -111,6 +111,7 @@ const getState = ({
             },
             //Termina el fetch que nos permite conectar con el BackEnd
 
+            //Empieza la Función que permite hacer el Logout
             logout: () => {
                 // console.log("Funciona");
                 localStorage.removeItem('token');
@@ -118,6 +119,10 @@ const getState = ({
                     auth: false
                 })
             },
+            //Termina la función de logout
+
+
+
 
 
             // changeColor: (index, color) => {
