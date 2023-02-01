@@ -136,7 +136,7 @@ const getState = ({
             //         return elm;
             //     });
 
-            // //     //reset the global store
+            //     //reset the global store
             //     // setStore({
             //     //     demo: demo
             //     // });
