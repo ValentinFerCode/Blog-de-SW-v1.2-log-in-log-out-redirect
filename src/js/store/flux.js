@@ -109,7 +109,36 @@ const getState = ({
                     //El catch con la arrow function nos avisa si algo sale mal
                     .catch((err) => console.log(err))
             },
-            //Termina el fetch que nos permite conectar con el BackEnd
+            //Termina el fetch que nos permite conectar con el Backend
+
+            register: (username, userEmail, userPassword) => {
+                //Empeiza el fetch de register que nos permite conectar el Backend
+
+                fetch('https://3000-valentinfer-flaskstarwa-8rxr6xqa8nz.ws-us85.gitpod.io/register', {
+                        //Para el method necesitamos header y body    
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            // 'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        //En los parentesis va el tipo de dato JSON. Luego colocamos lo que se ingreso en el input dentro de una variable (email y password)
+                        body: JSON.stringify({
+                            "email": userEmail,
+                            "password": userPassword
+                        }) // body data type must match "Content-Type" header
+                    })
+                    .then((response) => {
+                        console.log(response.status);
+                        if (response.status === 200) {
+                            setStore({
+                                auth: true
+                            })
+                        }
+                        return response.json()
+                    })
+                    .catch((err) => console.log(err))
+            },
+
 
             //Empieza la Función que permite hacer el Logout
             logout: () => {
@@ -141,8 +170,8 @@ const getState = ({
             //     //     demo: demo
             //     // });
             // }
-        }
-    };
+        },
+    }
 };
 
 export default getState;

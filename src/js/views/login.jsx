@@ -1,11 +1,11 @@
 import React from "react";
-import Form from "../component/form.jsx"
+import Formlog from "../component/formLog.jsx"
 
 export const Login = () => {
     
     return (
     <>
-        <Form />
+        <Formlog />
     </>
 )
 

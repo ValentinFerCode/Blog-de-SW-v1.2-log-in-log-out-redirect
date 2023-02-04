@@ -30,10 +30,15 @@ function handleLogout(){
 						{store.auth === false? <button className="btn btn-primary rounded mx-1">Login</button> : null}
 						</Link>
 
+						<Link to="/register">
+						{/* Usamos el operador ternario para crear la condición para que desaparezca el boton si estamos log, sino no*/}
+						{store.auth === false? <button className="btn btn-primary rounded mx-0">Register</button> : null}
+						</Link>
+
 						{/* Usamos el operador ternario para crear la condición para que aparezca el logout si estamos log, sino no */}
 						{store.auth === true? <button className="btn btn-primary rounded mx-1" onClick={()=>actions.logout()}>Logout</button> : null}
 
-						<button type="button" className="btn btn-danger dropdown-toggle rounded me-2" data-bs-toggle="dropdown" aria-expanded="false">
+						<button type="button" className="btn btn-danger mx-1 dropdown-toggle rounded me-2" data-bs-toggle="dropdown" aria-expanded="false">
 							Favorites
 							
 							{/* <span className="text-danger">

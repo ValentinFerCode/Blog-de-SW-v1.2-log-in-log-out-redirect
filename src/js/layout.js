@@ -10,6 +10,7 @@ import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Register } from "./views/register";
 
 //create your first component
 const Layout = () => {
@@ -27,6 +28,7 @@ const Layout = () => {
 						<Route path="/demo" element={<Demo />} />
 						{/* Ruta para el login */}
 						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
 						{/* <Route path="/detalles" element={<Detalles />} /> */}
 						{/* : -> refiere a rutas dinamicas // single es el espacio de memoria donde se guarda theid en la url // la vista que se ve es la del componente Single*/}
 						<Route path="/single/:theid" element={<Single />} />

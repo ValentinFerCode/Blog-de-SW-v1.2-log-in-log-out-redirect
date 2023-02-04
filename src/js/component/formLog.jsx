@@ -8,7 +8,7 @@ import {Navigate} from "react-router-dom"
 
 
 
-const Form = () => {
+const Formlog = () => {
    // //Declaracion de estados
    const[email,setEmail]=useState("")
    const[password,setPassword]=useState("")
@@ -109,4 +109,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default Formlog;
