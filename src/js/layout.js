@@ -10,7 +10,7 @@ import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { Register } from "./views/register";
+import { Register } from "./views/register.jsx";
 
 //create your first component
 const Layout = () => {
