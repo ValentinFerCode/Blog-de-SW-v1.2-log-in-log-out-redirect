@@ -49,5 +49,5 @@ onChange={(e)=>setPassword(e.target.value)}/>
 </form>}
 </>)
 };
-
+//Funcionando
 export default Formreg;
